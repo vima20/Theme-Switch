@@ -1,12 +1,5 @@
-// App.js
-import React, { createContext, useState, useContext } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-
-const Stack = createStackNavigator();
-
-const ThemeContext = createContext();
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -32,14 +25,10 @@ const App = () => {
   );
 
   return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Settings" component={SettingsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </ThemeContext.Provider>
+    <View style={styles.container}>
+      <HomeScreen />
+      <SettingsScreen />
+    </View>
   );
 };
 
